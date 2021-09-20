@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/hello', function () {
@@ -24,3 +26,32 @@ Route::get('/helloworld', function () {
 });
 
 Route::get('/test', 'TestController@test2');
+
+Route::get('/home', function () {
+	return view("home");
+});
+
+Route::get('/login', function () {
+	return view("login");
+});
+
+Route::get('/logout', function () {
+	return view("logout");
+});
+
+Route::get('/home', function () {
+	return view("home");
+});
+
+Route::get('/registration', function () {
+	return view("registration");
+});
+
+Route::get('/loginSuccess', function () {
+	return view("loginResponse");
+});
+
+Route::post('loginSuccess', 'LoginController@validateLogin');
+
+
+
