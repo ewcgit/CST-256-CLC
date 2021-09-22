@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+// CST-256 CLC Project Version 1.0 Page Created by Casey Huz
 include 'Controller.php';
 
 class LoginController extends Controller
@@ -27,7 +28,7 @@ class LoginController extends Controller
   
   public function validateLogin() {
   	
-  	return view('loginSuccess');
+  	return view('loginResponse');
   	
   }
   

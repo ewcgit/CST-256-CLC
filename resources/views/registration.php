@@ -1,4 +1,4 @@
-<?php // Registration Page ?>
+<!-- CST-256 CLC Project Version 1.0 Page Created by Casey Huz -->
 
 <html>
 
@@ -16,12 +16,25 @@
 		<form action="registration.php" method="post">
 			<div class="form-group">
 				<label>Username:</label>
-				<input type="text" name="user" class="form-control" required>
+				<input type="text" name="user" class="form-control" required><br>
 				</div>
 			<div class="form-group">
 				<label>Password</label>
-				<input type="password" name="password" class="form-control" required>
-				</div>
+				<input type="password" name="password" class="form-control" required><br>
+			</div>
+			<div class="form-group">
+				<label>First Name:</label>
+				<input type="text" name="first_name" class="form-control" required><br>
+			</div>
+			<div class="form-group">
+				<label>Last Name:</label>
+				<input type="text" name="last_name" class="form-control" required><br>
+			</div>	
+			<div class="form-group">
+				<label>Email:</label>
+				<input type="text" name="email" class="form-control" required><br><br>
+			</div>
+				
 				<button type="submit" class="btn btn-primary">Register</button>
 			</form>
 		</div>

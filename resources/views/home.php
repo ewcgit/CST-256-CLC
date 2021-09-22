@@ -1,5 +1,6 @@
+<!-- CST-256 CLC Project Version 1.0 Page Created by Elijah Coverini -->
+
 <?php
-// Programming by Elijah.
 session_start(); // Creates the session.
 if(!isset($_SESSION['username'])){
     //header('location:login'); // Forces user to login screen if no credentials set.

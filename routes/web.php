@@ -17,16 +17,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/hello', function () {
-	echo "Hello World";
-});
-
-Route::get('/helloworld', function () {
-	return view("helloworld");
-});
-
-Route::get('/test', 'TestController@test2');
-
 Route::get('/home', function () {
 	return view("home");
 });

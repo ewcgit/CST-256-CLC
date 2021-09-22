@@ -1,3 +1,5 @@
+<!-- CST-256 CLC Project Version 1.0 Page Created by Elijah Coverini -->
+
 <?php
 session_start();
 session_destroy();
