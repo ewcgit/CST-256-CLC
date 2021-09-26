@@ -15,10 +15,10 @@ class LoginController extends Controller {
 
 		// Validating login 1 for valid 0 for invalid
 		$validation = $login->login($userModel);
-		echo $validation;
 		if ($validation == 1) {
 			$data = ['username' => $username];
-			return view("loginpassed")->with($data);
+			echo "<h1>Login Successful!! Welcome " . $username . ".</h1><br><br>";
+			return view("landingpage");
 		}
 		
 		else {
