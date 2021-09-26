@@ -14,9 +14,10 @@
 <div class="col-md-6">
 		<h2>User registration</h2>
 		<form action="register" method="post">
+		@csrf
 			<div class="form-group">
 				<label>Username:</label>
-				<input type="text" name="user" class="form-control" required><br>
+				<input type="text" name="username" class="form-control" required><br>
 				</div>
 			<div class="form-group">
 				<label>Password</label>

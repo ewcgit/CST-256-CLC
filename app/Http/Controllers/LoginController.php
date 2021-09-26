@@ -1,36 +1,30 @@
 <?php
 namespace App\Http\Controllers;
-// CST-256 CLC Project Version 1.0 Page Created by Casey Huz
-include 'Controller.php';
 
-class LoginController extends Controller
-{
-  public function test() {
-  	echo "Hello World from Test Controller";
-  }
-  
-  public function newConnection() {
-  	$mysql_host = "localhost";
-  	$mysql_database = "cst-323";
-  	$mysql_user = "root";
-  	$mysql_password = "root";
-  	
-  	// Create connection
-  	$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_database);
-  	
-  	// Check connection
-  	if (!$conn) {
-  		die("Connection failed: " . mysqli_connect_error());
-  	}
-  	
-  	return $conn;
-  }
-  
-  public function validateLogin() {
-  	
-  	return view('loginResponse');
-  	
-  }
-  
+use Illuminate\Http\Request;
+use App\Models\UserModel;
+use App\Services\Business\SecurityService;
 
+class LoginController extends Controller {
+	public function index(Request $request) {
+		$login = new SecurityService();
+		$username = $request->input('username');
+		$password = $request->input('password');
+		
+		$userModel = new UserModel($username, $password);
+
+		// Validating login 1 for valid 0 for invalid
+		$validation = $login->login($userModel);
+		echo $validation;
+		if ($validation == 1) {
+			$data = ['username' => $username];
+			return view("loginpassed")->with($data);
+		}
+		
+		else {
+			return view("loginfailed");
+		}
+		
+
+	}
 }

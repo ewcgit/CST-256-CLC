@@ -33,15 +33,33 @@ Route::get('/home', function () {
 	return view("home");
 });
 
+Route::post('/dologin', 'LoginController@index');
+
+Route::post('/register', 'RegisterController@index');
+
+Route::get('/loginfailed', function() {
+	return view('loginFailed');
+});
+	
+Route::get('/loginpassed', function() {
+	return view('loginPassed');
+});
+
+Route::get('/dashboard', function () {
+	return view("landingPage");
+});
+
+Route::get('/profile', function () {
+	return view("profile");
+});
+
 Route::get('/registration', function () {
 	return view("registration");
 });
 
-Route::get('/loginSuccess', function () {
-	return view("loginResponse");
+Route::get('/registrationfailed', function() {
+	return view('registrationFailed');
 });
-
-Route::post('loginSuccess', 'LoginController@validateLogin');
 
 
 
