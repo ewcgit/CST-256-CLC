@@ -1,11 +1,10 @@
 <!-- CST-256 CLC Project Version 1.0 Page Created by Elijah Coverini -->
 
 <?php ?>
-
 <html>
 <head>
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet"> 
 </head>
 	<body>
 		<div class="container">

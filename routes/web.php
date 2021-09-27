@@ -40,18 +40,11 @@ Route::post('/register', 'RegisterController@index');
 Route::get('/loginfailed', function() {
 	return view('loginFailed');
 });
-	
-Route::get('/loginpassed', function() {
-	return view('loginPassed');
-});
 
 Route::get('/dashboard', function () {
 	return view("landingPage");
 });
 
-Route::get('/profile', function () {
-	return view("profile");
-});
 
 Route::get('/registration', function () {
 	return view("registration");
@@ -61,5 +54,13 @@ Route::get('/registrationfailed', function() {
 	return view('registrationFailed');
 });
 
+Route::get('/profile', function() {
+	return view('userProfile');
+});
 
+Route::get('/adminpanel', function() {
+	return view('adminPanel');
+});
+
+Route::post('/profile', 'ProfileController@userProfile');
 

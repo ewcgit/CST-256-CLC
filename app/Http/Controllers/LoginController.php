@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
 use App\Services\Business\SecurityService;
+use SessionHandler;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Session\Middleware\StartSession;
 
 class LoginController extends Controller {
 	public function index(Request $request) {
@@ -16,8 +19,10 @@ class LoginController extends Controller {
 		// Validating login 1 for valid 0 for invalid
 		$validation = $login->login($userModel);
 		if ($validation == 1) {
-			$data = ['username' => $username];
+			//$data = ['username' => $username];
 			echo "<h1>Login Successful!! Welcome " . $username . ".</h1><br><br>";
+			session(['loggedIn' => $validation]);
+			session(['username' => $username]);
 			return view("landingpage");
 		}
 		

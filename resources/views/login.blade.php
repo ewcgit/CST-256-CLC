@@ -21,7 +21,7 @@
 				<label>Password:</label>
 				<input type="password" name="password" class="form-control" required>
 				</div>
-				<button type="submit" class="btn btn-primary">Login</button>
+				<button style="margin-top: 5px;" type="submit" class="btn btn-primary">Login</button>
 		</form>
 	</div>
 		
