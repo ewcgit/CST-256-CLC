@@ -31,8 +31,7 @@ class RegisterController extends Controller {
 		if (!$conn) {
 			die("Connection failed: " . mysqli_connect_error()); // Failed connection.
 		}
-		else{ // Successful connection.
-		}
+
 		$sql = "INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `last_name`, `phone`, `street_number`, `street_name`, `city`, `state`, `zip`)
 			VALUES ('$username', '$password', '$email', '$firstName', '$lastName', '$phone', '$streetNumber', '$streetName', '$city', '$state', '$zip');";
 		

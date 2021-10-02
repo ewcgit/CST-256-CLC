@@ -25,8 +25,6 @@ class SecurityDAO {
 		if (!$conn) {
 			die("Connection failed: " . mysqli_connect_error()); // For failed SQL connections.
 		}
-		else{ // For successful SQL connections.
-		}
 		
 		// SQL database query actions.
 		$sql = "SELECT COUNT(*) AS 'total' FROM `cst-256`.`users` WHERE `username`='$username' AND `password`='$password';";
@@ -40,5 +38,31 @@ class SecurityDAO {
 		else {
 			return false;
 		}
-	}	
+	}
+	
+	public function getID(UserModel $user) {
+		$username = $user->getUsername();
+		$password = $user->getPassword();
+		
+		// Creates an SQL connection.
+		$conn = mysqli_connect($this->mysql_host, $this->mysql_user, $this->mysql_password, $this->mysql_database);
+		
+		// Checks the SQL connection.
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error()); // For failed SQL connections.
+		}
+		
+		$sql = "SELECT `id` FROM `users` WHERE `username` = '$username' AND `password` = '$password';";
+		
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) { // Only runs if at least one user exists matching the given credentials.
+			while($row = $result->fetch_assoc()) {
+				// Verifies each database variable.
+				$id = $row["id"];
+			}
+		}
+		
+		return $id;
+	}
 }

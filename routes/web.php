@@ -63,3 +63,5 @@ Route::get('/adminpanel', function() {
 });
 
 Route::post('/profile', 'ProfileController@userProfile'); // Profile handler.
+
+Route::post('/updateProfile', 'ProfileController@updateProfile'); // Profile handler.
