@@ -1,4 +1,5 @@
-<?php // Page by Elijah. ?>
+<?php // CST-256 page by Elijah
+// Successful login page is returned if username and password check out. ?>
 
 <html>
 <head>

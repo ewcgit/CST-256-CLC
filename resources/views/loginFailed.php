@@ -1,4 +1,7 @@
-<?php ?>
+<?php
+// CST-256 page by team.
+// A simple page for failed logins.
+?>
 
 <html>
 	<head>

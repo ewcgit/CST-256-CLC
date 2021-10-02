@@ -1,8 +1,11 @@
-<?php 
+<?php  // CST-256 page by team.
 	use App\Http\Controllers\ProfileController;
 
+	// Needed for page functionality.
 	$controller = new ProfileController();
 	$controller->userProfile();
+	
+	// A stylish page for user information.
 ?>
 
 <!DOCTYPE html>

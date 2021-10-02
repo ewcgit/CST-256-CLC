@@ -1,3 +1,7 @@
+<?php // CST-256 page by team.
+// A page for user logins.
+?>
+
 <html>
 
 <head>

@@ -1,3 +1,7 @@
+<?php // CST-256 page by team.
+// A stylish welcome page.
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -83,7 +87,6 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>

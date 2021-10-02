@@ -1,6 +1,6 @@
 <?php 
-	
-
+// CST-256 page by team.	
+// A simple page to announce a successful login.
 ?>
 
 <html>

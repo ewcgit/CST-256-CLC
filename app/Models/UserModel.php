@@ -1,29 +1,28 @@
-<?php
+<?php // CST-256 page by team.
 
 namespace App\Models;
 
 class UserModel {
 	
-	// Login Info
+	// Login Info.
 	private $username;
 	private $password;
 	private $role;
 	
-	// Contact Info
+	// Contact Info.
 	private $firstName;
 	private $lastName;
 	private $phone;
 	private $email;
 	
-	// Demographic Info
+	// Demographic Info.
 	private $streetNumber;
 	private $streetName;
 	private $city;
 	private $state;
 	private $zip;
 	
-	public function __construct($username, $password) {
-		
+	public function __construct($username, $password) { // A constructor.
 		$this->username = $username;
 		$this->password = $password;
 	}

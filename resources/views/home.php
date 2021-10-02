@@ -1,6 +1,7 @@
 <!-- CST-256 CLC Project Version 1.0 Page Created by Elijah Coverini -->
 
-<?php ?>
+<?php
+// A simple login/registration page for users. ?>
 
 <html>
 <head>
