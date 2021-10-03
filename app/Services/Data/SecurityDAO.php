@@ -5,26 +5,13 @@ namespace App\Services\Data;
 use App\Models\UserModel;
 
 class SecurityDAO {
-	// The default MAMP settings.
-	private $mysql_host = "localhost";
-	private $mysql_database = "cst-256";
-	private $mysql_user = "root";
-	private $mysql_password = "root";
-	
 	public function __construct() { // A constructor.
 	}
 	
 	public function findByUser(UserModel $user) { // Returns user from database.
 		$username = $user->getUsername();
 		$password = $user->getPassword();
-		
-		// Creates an SQL connection.
-		$conn = mysqli_connect($this->mysql_host, $this->mysql_user, $this->mysql_password, $this->mysql_database);
-		
-		// Checks the SQL connection.
-		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error()); // For failed SQL connections.
-		}
+		$conn = $this->getConnection();
 		
 		// SQL database query actions.
 		$sql = "SELECT COUNT(*) AS 'total' FROM `cst-256`.`users` WHERE `username`='$username' AND `password`='$password';";
@@ -43,14 +30,7 @@ class SecurityDAO {
 	public function getID(UserModel $user) {
 		$username = $user->getUsername();
 		$password = $user->getPassword();
-		
-		// Creates an SQL connection.
-		$conn = mysqli_connect($this->mysql_host, $this->mysql_user, $this->mysql_password, $this->mysql_database);
-		
-		// Checks the SQL connection.
-		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error()); // For failed SQL connections.
-		}
+		$conn = $this->getConnection();
 		
 		$sql = "SELECT `id` FROM `users` WHERE `username` = '$username' AND `password` = '$password';";
 		
@@ -65,4 +45,23 @@ class SecurityDAO {
 		
 		return $id;
 	}
+	
+	public function getConnection() {
+		// The default MAMP settings.
+		$mysql_host = "localhost";
+		$mysql_database = "cst-256";
+		$mysql_user = "root";
+		$mysql_password = "root";
+		
+		// Creates an SQL connection.
+		$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_database);
+		
+		// Checks the SQL connection.
+		if (!$conn) {
+			die("Connection failed: " . mysqli_connect_error()); // For failed SQL connections.
+		}
+		
+		return $conn;
+	}
+	
 }

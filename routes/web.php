@@ -62,6 +62,15 @@ Route::get('/adminpanel', function() {
 	return view('adminPanel'); // Staff only.
 });
 
+Route::get('/error', function() {
+	return view('errorPage'); // Error Page.
+});
+
 Route::post('/profile', 'ProfileController@userProfile'); // Profile handler.
 
 Route::post('/updateProfile', 'ProfileController@updateProfile'); // Profile handler.
+
+Route::post('/deleteUser', 'AdminController@deleteUser'); // Admin DeleteUser Functionality
+
+
+

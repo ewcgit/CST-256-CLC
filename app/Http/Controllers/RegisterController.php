@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\Data\SecurityDAO;
 
 class RegisterController extends Controller {
 	// The default MAMP settings.
@@ -23,14 +24,10 @@ class RegisterController extends Controller {
 		$city = $request->input('city');
 		$state = $request->input('state');
 		$zip = $request->input('zip');
+		$DAO = new SecurityDAO();
 		
-		// Creates an SQL connection.
-		$conn = mysqli_connect($this->mysql_host, $this->mysql_user, $this->mysql_password, $this->mysql_database);
-		
-		// Checks the SQL connection.
-		if (!$conn) {
-			die("Connection failed: " . mysqli_connect_error()); // Failed connection.
-		}
+		//Create new Connection
+		$conn = $DAO->getConnection();
 
 		$sql = "INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `last_name`, `phone`, `street_number`, `street_name`, `city`, `state`, `zip`)
 			VALUES ('$username', '$password', '$email', '$firstName', '$lastName', '$phone', '$streetNumber', '$streetName', '$city', '$state', '$zip');";

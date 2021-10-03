@@ -44,51 +44,52 @@
 
 <div class="col-md-6">
 		<h2>User registration</h2>
-		<form action="register" method="post">
+		<form action="updateProfile" method="post">
 			<div class="form-group">
 				<label>Username:</label>
-				<input type="text" name="username" class="form-control" value="<?php echo $username?>" disabled><br>
+				<input type="text" name="username" class="form-control" value="<?php echo $username?>" required><br>
 				</div>
 			<div class="form-group">
 				<label>First Name:</label>
-				<input type="text" name="firstName" class="form-control" value="<?php echo $firstName?>" disabled><br>
+				<input type="text" name="firstName" class="form-control" value="<?php echo $firstName?>" required><br>
 			</div>
 			<div class="form-group">
 				<label>Last Name:</label>
-				<input type="text" name="lastName" class="form-control" value="<?php echo $lastName?>" disabled><br>
+				<input type="text" name="lastName" class="form-control" value="<?php echo $lastName?>" required><br>
 			</div>	
 			<div class="form-group">
 				<label>Role:</label>
-				<input type="text" name="role" class="form-control" value="<?php echo $role?>" disabled><br>
+				<input type="text" name="role" class="form-control" value="<?php echo $role?>" required><br>
 			</div>
 			<div class="form-group">
 				<label>Email:</label>
-				<input type="text" name="email" class="form-control" value="<?php echo $email?>" disabled><br><br>
+				<input type="text" name="email" class="form-control" value="<?php echo $email?>" required><br><br>
 			</div>
 			<div class="form-group">
 				<label>Phone Number:</label>
-				<input type="text" name="phone" class="form-control" value="<?php echo $phone?>" disabled><br><br>
+				<input type="text" name="phone" class="form-control" value="<?php echo $phone?>" required><br><br>
 			</div>
 			<div class="form-group">
 				<label>Street Number:</label>
-				<input type="text" name="streetNumber" class="form-control" value="<?php echo $streetNumber?>" disabled><br><br>
+				<input type="text" name="streetNumber" class="form-control" value="<?php echo $streetNumber?>" required><br><br>
 			</div>
 			<div class="form-group">
 				<label>Street Name:</label>
-				<input type="text" name="streetName" class="form-control" value="<?php echo $streetName?>" disabled><br><br>
+				<input type="text" name="streetName" class="form-control" value="<?php echo $streetName?>" required><br><br>
 			</div>
 			<div class="form-group">
 				<label>City:</label>
-				<input type="text" name="city" class="form-control" value="<?php echo $city?>" disabled><br><br>
+				<input type="text" name="city" class="form-control" value="<?php echo $city?>" required><br><br>
 			</div>
 			<div class="form-group">
 				<label>State:</label>
-				<input type="text" name="State" class="form-control" value="<?php echo $state?>" disabled><br><br>
+				<input type="text" name="State" class="form-control" value="<?php echo $state?>" required><br><br>
 			</div>
 			<div class="form-group">
 				<label>Zip Code:</label>
-				<input type="text" name="zip" class="form-control" value="<?php echo $zip?>" disabled><br><br>
+				<input type="text" name="zip" class="form-control" value="<?php echo $zip?>" required><br><br>
 			</div>
+			<button type="submit" class="btn btn-primary">Save Changes</button>
 			</form>
 		</div>
 </body>
