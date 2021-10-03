@@ -1,4 +1,4 @@
-<?php
+<?php // CST-256 page by team.
 
 namespace App\Http\Controllers\Auth;
 
@@ -35,7 +35,7 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct() // A constructor.
     {
         $this->middleware('guest');
     }
@@ -46,8 +46,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
+    protected function validator(array $data){ // For validating the data.
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -61,8 +60,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data){ // For creating a user.
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
