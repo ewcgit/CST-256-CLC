@@ -34,7 +34,7 @@ class ProfileController extends Controller {
         
         $data = ['username' => $username, 'id' => $id, 'firstName' => $firstName, 'lastName' => $lastName, 'role' => $role, 'email' => $email, 'phone' => $phone, 'streetNumber' => $streetNumber,
             'streetName' => $streetName, 'city' => $city, 'state' => $state, 'zip' => $zip];
-        return view("userprofile")->with($data); // Sends results to userprofile view.
+        return view("userProfile")->with($data); // Sends results to userprofile view.
     }
     
     // Function to update user profile
