@@ -27,7 +27,7 @@ class LoginController extends Controller {
 			session(['loggedIn' => $validation]);
 			session(['username' => $username]);
 			session(['id' => $id]);
-			return view("landingpage"); // Redirect for successful logins.
+			return view("landingPage"); // Redirect for successful logins.
 		}
 		
 		else {
