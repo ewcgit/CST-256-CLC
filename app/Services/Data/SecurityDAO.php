@@ -14,7 +14,7 @@ class SecurityDAO {
 		$conn = $this->getConnection();
 		
 		// SQL database query actions.
-		$sql = "SELECT COUNT(*) AS 'total' FROM `cst-256`.`users` WHERE `username`='$username' AND `password`='$password';";
+		$sql = "SELECT COUNT(*) AS 'total' FROM `ayugetdsmsvnoclz`.`users` WHERE `username`='$username' AND `password`='$password';";
 		$result = mysqli_query($conn, $sql);
 		$data=mysqli_fetch_assoc($result);
 		$numOfRows = $data['total'];
@@ -48,7 +48,7 @@ class SecurityDAO {
 	
 	public function getConnection() {
 		// The default MAMP settings.
-		$mysql_host = "vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	";
+		$mysql_host = "vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 		$mysql_database = "ayugetdsmsvnoclz";
 		$mysql_user = "b3llbmr4b6zlqq6u";
 		$mysql_password = "hzhywgc0en7ggepn";
