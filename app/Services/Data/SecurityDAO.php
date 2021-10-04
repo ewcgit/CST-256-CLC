@@ -48,13 +48,14 @@ class SecurityDAO {
 	
 	public function getConnection() {
 		// The default MAMP settings.
-		$mysql_host = "localhost";
-		$mysql_database = "cst-256";
-		$mysql_user = "root";
-		$mysql_password = "root";
+		$mysql_host = "vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	";
+		$mysql_database = "ayugetdsmsvnoclz";
+		$mysql_user = "b3llbmr4b6zlqq6u";
+		$mysql_password = "hzhywgc0en7ggepn";
+		$mysql_port = "3306";
 		
 		// Creates an SQL connection.
-		$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_database);
+		$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_database, $mysql_port);
 		
 		// Checks the SQL connection.
 		if (!$conn) {

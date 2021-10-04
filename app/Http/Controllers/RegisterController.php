@@ -24,6 +24,9 @@ class RegisterController extends Controller {
 		$city = $request->input('city');
 		$state = $request->input('state');
 		$zip = $request->input('zip');
+		
+		// Performing validation on inputted username and password
+		$this->validateForm($request);
 		$DAO = new SecurityDAO();
 		
 		//Create new Connection
@@ -41,4 +44,15 @@ class RegisterController extends Controller {
 			return view("registrationfailed")->with($data); // Redirect for failed login.
 		}	
 	}
+	
+	private function validateForm(Request $request)
+	{
+		// Setup Data Validation Rules for Login Form
+		$rules = ['username' => 'Required | Between:4,20',
+				'password' => 'Required | Between:4,25'];
+		
+		// Run Data Validation Rules
+		$this->validate($request, $rules);
+	}
+	
 }

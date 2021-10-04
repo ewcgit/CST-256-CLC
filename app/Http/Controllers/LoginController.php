@@ -33,7 +33,5 @@ class LoginController extends Controller {
 		else {
 			return view("errorPage"); // Redirect for failed logins.
 		}
-		
-
 	}
 }
