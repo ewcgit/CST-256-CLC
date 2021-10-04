@@ -52,9 +52,10 @@ class SecurityDAO {
 		$mysql_database = "dfdopcps97q49f";
 		$mysql_user = "uetwxcsuqfuyao";
 		$mysql_password = "5b127b8944e2a6033392cfd0b2d6bc50b9c9895a5326041349d32338a73d34f8";
+        $mysql_port = 5432;
 		
 		// Creates an SQL connection.
-		$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_database);
+		$conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_database, $mysql_port);
 		
 		// Checks the SQL connection.
 		if (!$conn) {
