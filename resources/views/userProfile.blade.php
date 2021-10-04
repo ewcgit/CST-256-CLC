@@ -7,40 +7,9 @@
 	
 	// A stylish page for user information.
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinematic Station-1</title>
-    <link rel="stylesheet" type="text/css" href="../../public/css/app.css">
-    <link rel="stylesheet" type="text/css" href="../../public/css/style.css">
-    <style>
-        .aboutMe {
-            position: absolute;
-            outline: outset;
-            left: 52%;
-            top: 64.2em;
-            width: 26em;
-        }
-    </style>
-</head>
-
-<body>
-    <header><img src="images/logo.png" alt="Site logo" style="margin-left:23.5%; width:434px;height:225px;"></header>
-    <div class="topnav">
-        <a class="active" href="dashboard">Home</a>
-        <a href="News">News</a>
-        <a href="Messages">Messages</a>
-        <a href="profile">Profile</a>
-        <a href="About">About</a>
-        <a href="home">Logout</a>
-	</div>
-	
-	<body>
+@extends('layouts.appmaster')
+@section('title', 'User Profile')
+@section('content')
 
 <div class="col-md-6">
 		<h2>User Profile</h2>
@@ -93,5 +62,5 @@
 			<button type="submit" class="btn btn-primary">Save Changes</button>
 			</form>
 		</div>
-</body>
-</html>
+		
+@endsection

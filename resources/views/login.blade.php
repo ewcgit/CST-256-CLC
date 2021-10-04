@@ -2,16 +2,10 @@
 
 <?php // A simple page for logging in complete with @csrf token. ?>
 
-<html>
-<head>
-	<title>Login</title>
-</head>
-</body>
+@extends('layouts.appmaster')
+@section('title', 'Login Page')
+@section('content')
 
-<div class="container">
-	<div class="login-box">
-	<div class="row">
-	<div class="col-md-6">
 		<h2>User login</h2>
 		<form action="dologin" method="POST">
 		@csrf
@@ -25,10 +19,4 @@
 				</div>
 				<button style="margin-top: 5px;" type="submit" class="btn btn-primary">Login</button>
 		</form>
-	</div>
-		
-		</div>
-	</div>
-</div>
-</body>
-</html>
+@endsection

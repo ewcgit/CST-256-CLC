@@ -18,7 +18,7 @@ class AdminController extends Controller {
 		
 		// Printing results to a table
 		if ($result->num_rows > 0) {
-			echo "<table border='1'><tr><th>Item ID</th><th>Username</th><th>Email</th><th>Role</th></tr>";
+			echo "<table class='table table-dark table-striped' border='1'><tr><th>Item ID</th><th>Username</th><th>Email</th><th>Role</th></tr>";
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
 				echo "<tr><td>".$row["id"]."</td><td>".$row["username"]."</td><td>".$row["email"]."</td><td>".$row["role"]."</td></tr>";

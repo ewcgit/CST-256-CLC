@@ -3,16 +3,15 @@
 <?php 
 // A simple login and registration page for users.
 ?>
-<html>
-<head>
-<title>Home</title>
-<link href="{{ asset('/css/style.css') }}" rel="stylesheet"> 
-</head>
-	<body>
-		<div class="container">
-		<h1> Welcome </h1> 
-		<a href="login">Login</a>
-		<a href="registration">Register</a>
-	</div>
-</body>
-</html>
+@extends('layouts.appmaster')
+@section('title', 'Welcome Page')
+@section('content')
+
+
+<div class="container">
+	<h1> Welcome to Job Finder! </h1> 
+	<a href="login" class="btn btn-dark">Login</a>
+	<a href="registration" class="btn btn-dark">Register</a>
+</div>
+
+@endsection
