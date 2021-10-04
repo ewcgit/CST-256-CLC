@@ -63,11 +63,11 @@ class ProfileController extends Controller {
         
         if (mysqli_query($conn, $sql)) {
             echo "<h1>Profile Updated</h1><br>";
-            return view("landingpage");
+            return view("landingPage");
         } else {
             $error = mysqli_error($conn);
             $data = ['error' => $error];
-            return view("registrationfailed")->with($data); // Redirect for failed Update
+            return view("registrationFailed")->with($data); // Redirect for failed Update
         }
     }
     public function eportfolioProfile() {
