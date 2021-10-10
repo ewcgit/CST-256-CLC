@@ -9,8 +9,7 @@
         <li class="nav-item">
           <form action="profile" method="post">
         	@csrf
-    			<button name="userProfile" type="submit" class="btn btn-dark">Profile</button>
-			</form>
+    			<button name="userProfile" type="submit" class="btn btn-dark">Profile</button></form>
         </li>
         <li class="nav-item">
           <form action="portfolio" method="post">

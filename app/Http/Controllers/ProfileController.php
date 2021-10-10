@@ -43,7 +43,6 @@ class ProfileController extends Controller {
         $username = $request->input('username');
         $firstName = $request->input('firstName');
         $lastName = $request->input('lastName');
-        $role = $request->input('role');
         $phone = $request->input('phone');
         $email = $request->input('email');
         $streetNumber = $request->input('streetNumber');
@@ -51,7 +50,7 @@ class ProfileController extends Controller {
         $city = $request->input('city');
         $state = $request->input('state');
         $zip = $request->input('zip');
-        $id = session('id');
+        $id = $request->input('id');
         $DAO = new SecurityDAO();
         
         //Create new Connection
@@ -62,7 +61,7 @@ class ProfileController extends Controller {
 		`city` = '$city', `state` = '$state', `zip` = '$zip' WHERE `id` = '$id';";
         
         if (mysqli_query($conn, $sql)) {
-            echo "<h1>Profile Updated</h1><br>";
+            echo "<h1>Profile Updated Successfully!</h1><br>";
             return view("landingPage");
         } else {
             $error = mysqli_error($conn);
@@ -164,5 +163,7 @@ class ProfileController extends Controller {
                     'degree_type2' => $degree_type2];
                 return view('eportfolioProfile')->with($data);
         }}
+        
+        
     
 }

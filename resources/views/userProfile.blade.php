@@ -16,6 +16,10 @@
 		<form action="updateProfile" method="post">
 		@csrf
 			<div class="form-group">
+				<label>ID:</label>
+				<input type="text" name="id" class="form-control" value="<?php echo $id?>" readonly><br>
+				</div>
+			<div class="form-group">
 				<label>Username:</label>
 				<input type="text" name="username" class="form-control" value="<?php echo $username?>" required><br>
 				</div>

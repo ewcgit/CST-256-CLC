@@ -86,7 +86,7 @@ Route::post('/updateProfile', 'ProfileController@updateProfile'); // Profile han
 
 Route::post('/deleteUser', 'AdminController@deleteUser'); // Admin DeleteUser Functionality
 
-Route::post('/editUser', 'AdminController@updateUserProfile'); // Admin DeleteUser Functionality
+Route::post('/editUser', 'AdminController@editUserProfile'); // Admin DeleteUser Functionality
 
 Route::post('/eprofile', 'ProfileController@eportfolioProfile'); // Portfolio handler.
 
