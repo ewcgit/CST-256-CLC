@@ -70,6 +70,14 @@ Route::get('/posting', function () {
 	return view("jobPosting"); // Returns to home page.
 });
 
+Route::get('/editUser', function () {
+	return view("editUser"); // Returns to home page.
+});
+
+Route::get('/deleteUser', function () {
+	return view("deleteUser"); // Returns to home page.
+});
+	
 Route::post('/profile', 'ProfileController@userProfile'); // Profile handler.
 
 Route::post('/portfolio', 'ProfileController@eportfolioProfile'); // Portfolio handler.
@@ -77,6 +85,8 @@ Route::post('/portfolio', 'ProfileController@eportfolioProfile'); // Portfolio h
 Route::post('/updateProfile', 'ProfileController@updateProfile'); // Profile handler.
 
 Route::post('/deleteUser', 'AdminController@deleteUser'); // Admin DeleteUser Functionality
+
+Route::post('/editUser', 'AdminController@updateUserProfile'); // Admin DeleteUser Functionality
 
 Route::post('/eprofile', 'ProfileController@eportfolioProfile'); // Portfolio handler.
 

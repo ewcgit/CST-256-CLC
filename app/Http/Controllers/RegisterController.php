@@ -5,11 +5,6 @@ use Illuminate\Http\Request;
 use App\Services\Data\SecurityDAO;
 
 class RegisterController extends Controller {
-	// The default MAMP settings.
-	private $mysql_host = "localhost";
-	private $mysql_database = "cst-256";
-	private $mysql_user = "root";
-	private $mysql_password = "root";
 	
 	public function index(Request $request) { // Data request used for the index.
 		// Binds each database variable.

@@ -49,4 +49,37 @@ class AdminController extends Controller {
 			return view("errorPage")->with($data); // Redirect for failed Update
 		}
 	}
+	
+	public function updateUserProfile(Request $request) {
+		$id = $request->input('userID');
+		$DAO = new SecurityDAO();
+		
+		//Create new Connection
+		$conn = $DAO->getConnection();
+		
+		$sql = "SELECT * FROM `users` WHERE `id` = '$id';"; // User query.
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) { // Only runs if at least one user exists matching the given credentials.
+			while($row = $result->fetch_assoc()) {
+				// Verifies each database variable.
+				$id = $row["id"];
+				$username = $row["username"];
+				$firstName = $row["first_name"];
+				$lastName = $row["last_name"];
+				$role = $row["role"];
+				$email = $row["email"];
+				$phone = $row["phone"];
+				$streetNumber = $row["street_number"];
+				$streetName = $row["street_name"];
+				$city = $row["city"];
+				$state = $row["state"];
+				$zip = $row["zip"];
+			}
+		}
+		
+		$data = ['username' => $username, 'id' => $id, 'firstName' => $firstName, 'lastName' => $lastName, 'role' => $role, 'email' => $email, 'phone' => $phone, 'streetNumber' => $streetNumber,
+				'streetName' => $streetName, 'city' => $city, 'state' => $state, 'zip' => $zip];
+		return view("userProfile")->with($data); // Sends results to userprofile view.
+	}
 }

@@ -13,7 +13,7 @@
 			</form>
         </li>
         <li class="nav-item">
-          <form action="eprofile" method="post">
+          <form action="portfolio" method="post">
         	@csrf
     		<button name="eportfolioProfile" type="submit" class="btn btn-dark">E-Portfolio</button></form>
         </li>
