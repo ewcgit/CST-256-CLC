@@ -27,6 +27,26 @@ class AdminController extends Controller {
 		}
 		mysqli_close($conn);
 		
+		// Section for printing out affinity groups
+		$conn = $DAO->getConnection();
+		$sql = "SELECT * FROM `affinity`;";
+		$result = $conn->query($sql);
+		
+		echo "<h1>Current Affinity Groups</h1>";
+		
+		// Printing results to a table
+		if ($result->num_rows > 0) {
+			echo "<table class='table table-dark table-striped' border='1'><tr><th>Group ID</th><th>Group Name</th><th>Group Description</th></tr>";
+			// output data of each row
+			while($row = $result->fetch_assoc()) {
+				echo "<tr><td>".$row["groupID"]."</td><td>".$row["Group Name"]."</td><td>".$row["Group Description"]."</td></tr>";
+			}
+			echo "</table>";
+		} else {
+			echo "0 results";
+		}
+		mysqli_close($conn);
+		
 		// Section for printing out job listings
 		$conn = $DAO->getConnection();
 		$sql = "SELECT * FROM `job_posting`;";
