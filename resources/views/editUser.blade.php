@@ -1,9 +1,11 @@
 <?php  // CST-256 page by team.
 use App\Http\Controllers\ProfileController;
 
-// Needed for page functionality.
-//$controller = new ProfileController();
-//$controller->userProfile();
+// Login Validation
+$loggedIn = session('loggedIn');
+if($loggedIn != 1) {
+	Redirect::to('home')->send();
+}
 
 // A stylish page for user information.
 ?>

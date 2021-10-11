@@ -90,4 +90,6 @@ Route::post('/editUser', 'AdminController@editUserProfile'); // Admin DeleteUser
 
 Route::post('/eprofile', 'ProfileController@eportfolioProfile'); // Portfolio handler.
 
-
+Route::get('/redirect', function() {
+	return redirect('/home');
+});

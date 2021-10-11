@@ -1,6 +1,11 @@
 <?php  // CST-256 page by team.
 	use App\Http\Controllers\ProfileController;
-
+	
+	$loggedIn = session('loggedIn');
+	if($loggedIn != 1) {
+		Redirect::to('home')->send();
+	}
+	
 	// Needed for page functionality.
 	$controller = new ProfileController();
 	$controller->userProfile();

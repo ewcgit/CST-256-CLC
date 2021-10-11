@@ -7,11 +7,9 @@ use App\Services\Data\SecurityDAO;
 class AdminController extends Controller {
 	public function adminPanel() {
 		$DAO = new SecurityDAO();
-		
+		// Section for printing out users
 		$conn = $DAO->getConnection();
-		
 		$sql = "SELECT * FROM `users`;";
-		
 		$result = $conn->query($sql);
 		
 		echo "<h1>Current Users</h1>";
@@ -22,6 +20,28 @@ class AdminController extends Controller {
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
 				echo "<tr><td>".$row["id"]."</td><td>".$row["username"]."</td><td>".$row["email"]."</td><td>".$row["role"]."</td></tr>";
+			}
+			echo "</table>";
+		} else {
+			echo "0 results";
+		}
+		mysqli_close($conn);
+		
+		// Section for printing out job listings
+		$conn = $DAO->getConnection();
+		$sql = "SELECT * FROM `job_posting`;";
+		$result = $conn->query($sql);
+		
+		echo "<h1>Current Job Listings</h1>";
+		
+		// Printing results to a table
+		if ($result->num_rows > 0) {
+			echo "<table class='table table-dark table-striped' border='1'><tr><th>Job ID</th><th>Company</th><th>Job Title</th><th>Job Type</th>
+			<th>Job Status</th><th>Closing Date</th></tr>";
+			// output data of each row
+			while($row = $result->fetch_assoc()) {
+				echo "<tr><td>".$row["Job_ID"]."</td><td>".$row["Company"]."</td><td>".$row["Job_Title"]."</td><td>".$row["Job_Type"]."</td>
+				<td>".$row["Job_status"]."</td><td>".$row["Closing_Date"]."</td></tr>";
 			}
 			echo "</table>";
 		} else {
@@ -50,6 +70,7 @@ class AdminController extends Controller {
 		}
 	}
 	
+	// Function to update the selected user's profile
 	public function updateUserProfile(Request $request) {
 		$id = $request->input('userID');
 		$DAO = new SecurityDAO();

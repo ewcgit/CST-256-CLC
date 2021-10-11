@@ -1,4 +1,10 @@
-<?php ?>
+<?php 
+// Login Validation
+$loggedIn = session('loggedIn');
+if($loggedIn != 1) {
+	Redirect::to('home')->send();
+}
+?>
 @extends('layouts.appmaster')
 @section('title', 'Job Postings')
 @section('content')

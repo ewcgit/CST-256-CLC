@@ -29,7 +29,7 @@
 			</form>
         </li>
         <li>
-        	<a href="home" role="button" class="btn btn-dark">Logout</a> 
+        	<a href="logout" role="button" class="btn btn-dark">Logout</a> 
         </li>
       </ul>
     </div>

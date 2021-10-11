@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 // Resources for the login controller's functionality.
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\UserModel;
 use App\Services\Business\SecurityService;
 use App\Services\Data\SecurityDAO;
@@ -35,3 +36,5 @@ class LoginController extends Controller {
 		}
 	}
 }
+
+?>

@@ -1,4 +1,9 @@
-
+<?php 
+$loggedIn = session('loggedIn');
+if($loggedIn != 1) {
+	Redirect::to('home')->send();
+}
+?>
 
 @extends('layouts.appmaster')
 @section('title', 'Admin Panel')
@@ -9,7 +14,6 @@
 		<input id='userID' name='userID'>@csrf
 		<button type='submit' class='btn btn-primary'>Edit User</button>
 	</form>
-	<br>
 	<form action='deleteUser' method='POST'>
 		<label for='userID'>Enter an ID to Delete:</label>
 		<input id='userID' name='userID'>@csrf
@@ -23,6 +27,19 @@ use App\Http\Controllers\AdminController;
 	$controller = new AdminController();
 	$controller->adminPanel();
 ?>
+
+<br>
+	<form action='editJob' method='POST'>
+		<label for='jobID'>Enter an ID to Edit:</label>
+		<input id='jobID' name='userID'>@csrf
+		<button type='submit' class='btn btn-primary'>Edit Job</button>
+	</form>
+	<form action='deleteJob' method='POST'>
+		<label for='jobID'>Enter an ID to Delete:</label>
+		<input id='jobID' name='userID'>@csrf
+		<button type='submit' class='btn btn-primary'>Delete Job</button>
+	</form>
+	<br>
 	
 	
 @endsection
