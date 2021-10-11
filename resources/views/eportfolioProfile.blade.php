@@ -1,11 +1,6 @@
 <?php  // CST-256 page by team.
 use App\Http\Controllers\ProfileController;
 
-// 	// Needed for page functionality.
- 	//$controller = new ProfileController();
- 	//$controller->eportfolioProfile();
-
-// A stylish page for Profile information.
 ?>
 
 @extends('layouts.appmaster')

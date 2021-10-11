@@ -36,7 +36,7 @@ Route::get('/home', function () {
 Route::post('/dologin', 'LoginController@index'); // Login handler.
 
 Route::post('/register', 'RegisterController@index'); // Registration handler.
-
+    
 Route::get('/loginfailed', function() {
 	return view('loginFailed'); // Logs the user out.
 });
@@ -62,6 +62,8 @@ Route::get('/adminpanel', function() {
 	return view('adminPanel'); // Staff only.
 });
 
+
+
 Route::get('/error', function() {
 	return view('errorPage'); // Error Page.
 });
@@ -77,6 +79,8 @@ Route::get('/editUser', function () {
 Route::get('/deleteUser', function () {
 	return view("deleteUser"); // Returns to home page.
 });
+Route::get('/affinity', 'ProfileController@affinityMemberDisplay');//Affility Member Display     
+Route::get('/remove', 'ProfileController@removeAffinity');//Affility Member Display
 	
 Route::post('/profile', 'ProfileController@userProfile'); // Profile handler.
 
@@ -89,5 +93,7 @@ Route::post('/deleteUser', 'AdminController@deleteUser'); // Admin DeleteUser Fu
 Route::post('/editUser', 'AdminController@updateUserProfile'); // Admin DeleteUser Functionality
 
 Route::post('/eprofile', 'ProfileController@eportfolioProfile'); // Portfolio handler.
+
+Route::post('/addGroup', 'ProfileController@addAffinity'); // 
 
 

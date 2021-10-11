@@ -29,6 +29,10 @@
     		<button name="adminPanel" type="submit" class="btn btn-dark">Admin Panel</button>
 			</form>
         </li>
+          <form action="affinity" method="get">
+        	@csrf
+    		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Membeships</button>
+			</form>        
         <li>
         	<a href="home" role="button" class="btn btn-dark">Logout</a> 
         </li>

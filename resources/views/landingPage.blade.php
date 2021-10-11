@@ -1,4 +1,4 @@
-<?php // CST-256 page by team.
+<?php // CST-256 page by team. 
 // A page for user logins.
 ?>
 @extends('layouts.appmaster')
