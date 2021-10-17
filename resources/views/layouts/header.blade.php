@@ -22,12 +22,6 @@
     		<button name="jobposting" type="submit" class="btn btn-dark">Job Postings</button>
 			</form>
         </li>
-        <li class="nav-item">
-          <form action="adminpanel" method="get">
-        	@csrf
-    		<button name="adminPanel" type="submit" class="btn btn-dark">Admin Panel</button>
-			</form>
-        </li>
 		<li class="nav-item">
           <form action="affinity" method="get">
         	@csrf
@@ -37,6 +31,20 @@
         <li>
         	<a href="logout" role="button" class="btn btn-dark">Logout</a> 
         </li>
+        
+        <!-- Checking if the user is an admin before displaying the Admin Panel button -->
+        <?php 
+        // Checking if a user is an admin
+        $role = session('role');
+        if($role == "admin") {
+        	echo '<li class="nav-item">
+          	<form action="adminpanel" method="get">
+        	@csrf
+    		<button name="adminPanel" type="submit" class="btn btn-dark">Admin Panel</button>
+			</form>
+        	</li>';
+        }
+        ?>
       </ul>
     </div>
   </div>

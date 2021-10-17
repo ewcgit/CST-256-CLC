@@ -1,7 +1,14 @@
 <?php 
+// Checking if a user is logged in
 $loggedIn = session('loggedIn');
 if($loggedIn != 1) {
 	Redirect::to('home')->send();
+}
+
+// Checking if a user is an admin
+$role = session('role');
+if($role != "admin") {
+	Redirect::to('dashboard')->send();
 }
 ?>
 

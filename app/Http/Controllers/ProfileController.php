@@ -67,9 +67,10 @@ class ProfileController extends Controller {
         } else {
             $error = mysqli_error($conn);
             $data = ['error' => $error];
-            return view("registrationFailed")->with($data); // Redirect for failed Update
+            return view("errorPage")->with($data); // Redirect for failed Update
         }
     }
+    
     public function eportfolioProfile() {
         $username = session('username');
         $DAO = new SecurityDAO();
@@ -173,7 +174,7 @@ class ProfileController extends Controller {
             //Create new Connection
             $conn = $DAO->getConnection();
             
-            $sql = "SELECT * FROM `users` WHERE `username` = '$username';"; // User query.
+            $sql = "SELECT `affinity` FROM `users` WHERE `username` = '$username';"; // User query.
             $result = $conn->query($sql);
             
             if ($result->num_rows > 0) { // Only runs if at least one user exists matching the given credentials.
@@ -198,50 +199,64 @@ class ProfileController extends Controller {
             }
             
             $data = ['groupID' => $groupID, 'groupName' => $groupName, 'groupDescription' => $groupDescription];
-            if ($affinity = 1) { return view("affinityIsMember")->with($data);} // Sends results to userprofile view.}
-            else {  return view("affinityNotMember")->with($data);}
+            if ($affinity == "1") { 
+            	return view('affinityNotMember')->with($data);
+            }
+            
+            else {
+            	return view('affinityIsMember')->with($data);
+            }
+            
         }
-         public function addAffinity() {
-             $groupid = session('groupid');
-             $username = session('username');
-             $DAO = new SecurityDAO();
+        
+		// Updating user Affinity group
+        public function addAffinity(Request $request) {
+        	 
+			$groupID = $request->input('groupid');
+         	$id = session('id');
+            $DAO = new SecurityDAO();
              
-             //Create new Connection
-             $conn = $DAO->getConnection();
-             echo $groupid;
+            //Create new Connection
+            $conn = $DAO->getConnection();
              
-             $sql = "Update `users` SET affinity = 3 WHERE `username`  = '$username';"; // Search for eprofile based on foreign key ID
-             if ($conn->query($sql) === TRUE) {
-                 echo "Record updated successfully";
-             } else {
-                 echo "Error updating record: " . $conn->error;
-             }
-             return view('affinityIsMember')->with ($data);
-           
+            $sql = "Update `users` SET `affinity` = '$groupID' WHERE `id`  = '$id';"; // Search for eprofile based on foreign key ID
+            if (mysqli_query($conn, $sql)) {
+            	mysqli_close($conn);
+            	echo "<h1>Affinity Updated</h1><br>";
+                return view('landingPage');
+            } 
+            else {
+            	$error = mysqli_error($conn);
+            	mysqli_close($conn);
+            	$data = ['error' => $error];
+            	return view("errorPage")->with($data); // Redirect for failed Update
+            }
+            
+            
          }
-         public function removeAffinity(){
-             
-             $DAO = new SecurityDAO();
-             $username = session('username');
-             
-             // Create new connection
-             $conn = $DAO->getConnection();
-             
-             // Update session user affinity group to 1 to remove affinity
-             $sql = "UPDATE `users` SET `affinity` = 1 WHERE `username` = '$username';";
-             
-             // Check if query was successful
-             if ($conn->query($sql) === TRUE) {
-                 // Echo success message and redirect to Landing Page
-                 echo "<h1>$username successfully removed the affinity";
-                 return view("landingPage");
-             } else {
-                 // A SQL error occurred, gather the data, redirect to Error Page with the error message
-                 $error = $conn->error;
-                 $data = ['error' => $error];
-                 return view("errorPage")->with($data);
-             }
-         }}
+         
+    // Resets the User's Affinity group to the default '1'
+	public function removeAffinity(){
+		$id = session('id');
+		$DAO = new SecurityDAO();
+		
+		//Create new Connection
+		$conn = $DAO->getConnection();
+		
+		$sql = "Update `users` SET `affinity` = '1' WHERE `id`  = '$id';"; // Search for eprofile based on foreign key ID
+		if (mysqli_query($conn, $sql)) {
+			mysqli_close($conn);
+			echo "<h1>Affinity Updated</h1><br>";
+			return view('landingPage');
+		}
+		else {
+			$error = mysqli_error($conn);
+			mysqli_close($conn);
+			$data = ['error' => $error];
+			return view("errorPage")->with($data); // Redirect for failed Update
+		}
+	}
+}
          
 
          

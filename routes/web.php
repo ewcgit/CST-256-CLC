@@ -13,6 +13,7 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+// GET Routes
 Route::get('/', function () {
     return view('home'); // Returns to home page.
 });
@@ -28,14 +29,6 @@ Route::get('/login', function () {
 Route::get('/logout', function () {
 	return view("logout"); // Logs the user out.
 });
-
-Route::get('/home', function () {
-	return view("home"); // Returns to home page.
-});
-
-Route::post('/dologin', 'LoginController@index'); // Login handler.
-
-Route::post('/register', 'RegisterController@index'); // Registration handler.
 
 Route::get('/loginfailed', function() {
 	return view('loginFailed'); // Logs the user out.
@@ -66,10 +59,6 @@ Route::get('/error', function() {
 	return view('errorPage'); // Error Page.
 });
 
-Route::get('/posting', function () {
-	return view("jobPosting"); // Returns to home page.
-});
-
 Route::get('/editUser', function () {
 	return view("editUser"); // Returns to home page.
 });
@@ -78,9 +67,23 @@ Route::get('/deleteUser', function () {
 	return view("deleteUser"); // Returns to home page.
 });
 
-Route::get('/affinity', 'ProfileController@affinityMemberDisplay');//Affility Member Display  
+Route::get('/redirect', function() {
+	return redirect('/home');
+});
+
+Route::get('/jobdetails', function () {
+	return view('jobPostingDetail'); // Returns to home page.
+});
+
+Route::get('/posting', function () { // Job Posting Controller
+	return view('jobPosting'); // Staff only.
+});
+
+Route::get('/affinity', 'ProfileController@affinityMemberDisplay');//Affility Member Display
+
+// POST Routes
    
-Route::get('/remove', 'ProfileController@removeAffinity');//Affility Member Display
+Route::post('/remove', 'ProfileController@removeAffinity');//Affility Member Display
 	
 Route::post('/profile', 'ProfileController@userProfile'); // Profile handler.
 
@@ -90,12 +93,16 @@ Route::post('/updateProfile', 'ProfileController@updateProfile'); // Profile han
 
 Route::post('/deleteUser', 'AdminController@deleteUser'); // Admin DeleteUser Functionality
 
-Route::post('/editUser', 'AdminController@editUserProfile'); // Admin DeleteUser Functionality
+Route::post('/editUser', 'AdminController@editUserProfile'); // Admin Edit User Functionality
+
+Route::post('/adminUpdateProfile', 'AdminController@adminUpdateProfile'); // Admin Profile Update
 
 Route::post('/eprofile', 'ProfileController@eportfolioProfile'); // Portfolio handler.
 
 Route::post('/addGroup', 'ProfileController@addAffinity'); // 
 
-Route::get('/redirect', function() {
-	return redirect('/home');
-});
+Route::post('/dologin', 'LoginController@index'); // Login handler.
+
+Route::post('/register', 'RegisterController@index'); // Registration handler.
+
+Route::post('/selectJob', 'JobPostingController@jobPostingsByID'); // Single job description

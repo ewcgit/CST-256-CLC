@@ -16,10 +16,10 @@ class AdminController extends Controller {
 		
 		// Printing results to a table
 		if ($result->num_rows > 0) {
-			echo "<table class='table table-dark table-striped' border='1'><tr><th>Item ID</th><th>Username</th><th>Email</th><th>Role</th></tr>";
+			echo "<table class='table table-dark table-striped' border='1'><tr><th>Item ID</th><th>Username</th><th>Email</th><th>Role</th><th>Affinity</th></tr>";
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
-				echo "<tr><td>".$row["id"]."</td><td>".$row["username"]."</td><td>".$row["email"]."</td><td>".$row["role"]."</td></tr>";
+				echo "<tr><td>".$row["id"]."</td><td>".$row["username"]."</td><td>".$row["email"]."</td><td>".$row["role"]."</td><td>".$row["affinity"]."</td></tr>";
 			}
 			echo "</table>";
 		} else {
@@ -142,6 +142,7 @@ class AdminController extends Controller {
 				$firstName = $row["first_name"];
 				$lastName = $row["last_name"];
 				$role = $row["role"];
+				$affinity = $row["affinity"];
 				$email = $row["email"];
 				$phone = $row["phone"];
 				$streetNumber = $row["street_number"];
@@ -152,8 +153,43 @@ class AdminController extends Controller {
 			}
 		}
 		
-		$data = ['username' => $username, 'id' => $id, 'firstName' => $firstName, 'lastName' => $lastName, 'role' => $role, 'email' => $email, 'phone' => $phone, 'streetNumber' => $streetNumber,
-				'streetName' => $streetName, 'city' => $city, 'state' => $state, 'zip' => $zip];
+		$data = ['username' => $username, 'id' => $id, 'firstName' => $firstName, 'lastName' => $lastName, 'role' => $role, 'affinity' => $affinity, 
+				'email' => $email, 'phone' => $phone, 'streetNumber' => $streetNumber, 'streetName' => $streetName, 'city' => $city, 'state' => $state, 'zip' => $zip];
 		return view("editUser")->with($data); // Sends results to userprofile view.
+	}
+	
+	// Function to update user profile
+	public function adminUpdateProfile(Request $request) {
+		// Assigning data from fields to variables
+		$username = $request->input('username');
+		$firstName = $request->input('firstName');
+		$lastName = $request->input('lastName');
+		$role = $request->input('role');
+		$affinity = $request->input('affinity');
+		$phone = $request->input('phone');
+		$email = $request->input('email');
+		$streetNumber = $request->input('streetNumber');
+		$streetName = $request->input('streetName');
+		$city = $request->input('city');
+		$state = $request->input('state');
+		$zip = $request->input('zip');
+		$id = $request->input('id');
+		$DAO = new SecurityDAO();
+		
+		//Create new Connection
+		$conn = $DAO->getConnection();
+		
+		$sql = "UPDATE `users` SET `username` = '$username', `email` = '$email', `first_name` = '$firstName',
+		`last_name` = '$lastName', `role` = '$role', `affinity` = '$affinity', `phone` = '$phone', `street_number` = '$streetNumber', `street_name` = '$streetName',
+		`city` = '$city', `state` = '$state', `zip` = '$zip' WHERE `id` = '$id';";
+		
+		if (mysqli_query($conn, $sql)) {
+			echo "<h1>Profile Updated</h1><br>";
+			return view("landingPage");
+		} else {
+			$error = mysqli_error($conn);
+			$data = ['error' => $error];
+			return view("errorPage")->with($data); // Redirect for failed Update
+		}
 	}
 }

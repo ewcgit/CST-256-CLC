@@ -46,6 +46,25 @@ class SecurityDAO {
 		return $id;
 	}
 	
+	public function getRole(UserModel $user) {
+		$username = $user->getUsername();
+		$password = $user->getPassword();
+		$conn = $this->getConnection();
+		
+		$sql = "SELECT `role` FROM `users` WHERE `username` = '$username' AND `password` = '$password';";
+		
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) { // Only runs if at least one user exists matching the given credentials.
+			while($row = $result->fetch_assoc()) {
+				// Verifies each database variable.
+				$role = $row["role"];
+			}
+		}
+		
+		return $role;
+	}
+	
 	public function getConnection() {
 		// The default MAMP settings.
 		$mysql_host = "vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";

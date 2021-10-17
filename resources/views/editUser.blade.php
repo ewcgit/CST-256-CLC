@@ -7,15 +7,20 @@ if($loggedIn != 1) {
 	Redirect::to('home')->send();
 }
 
-// A stylish page for user information.
+// Checking if a user is an admin
+$role = session('role');
+if($role != "admin") {
+	Redirect::to('dashboard')->send();
+}
 ?>
+
 @extends('layouts.appmaster')
 @section('title', 'Edit User Profile')
 @section('content')
 
 <div class="col-md-6">
 		<h2>User Profile</h2>
-		<form action="updateProfile" method="post">
+		<form action="adminUpdateProfile" method="post">
 		@csrf
 		<div class="form-group">
 				<label>ID:</label>
@@ -36,6 +41,10 @@ if($loggedIn != 1) {
 			<div class="form-group">
 				<label>Role:</label>
 				<input type="text" name="role" class="form-control" value="<?php echo $role?>" required><br>
+			</div>
+			<div class="form-group">
+				<label>Affinity:</label>
+				<input type="text" name="affinity" class="form-control" value="<?php echo $affinity?>" required><br>
 			</div>
 			<div class="form-group">
 				<label>Email:</label>

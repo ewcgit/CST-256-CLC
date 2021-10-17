@@ -8,10 +8,12 @@ if($loggedIn != 1) {
 @section('title', 'Affinity Groups')
 @section('content')
 
-       <h1 align=center>   You are a member of  {{ $groupName }}  </h1>
-            <form action="remove" method="get">
-        		@csrf
-    			<button name="removeMember" type="submit" class="btn btn-dark">Remove</button>
-			</form>   
+	<h1 align=center>   You are a member of  {{ $groupName }}  </h1>
+       
+	<!-- Option to remove the user's affinity group -->
+	<form action="remove" method="post">
+		@csrf
+		<button name="removeMember" type="submit" class="btn btn-dark">Remove Affinity</button>
+	</form>   
        
 @endsection  

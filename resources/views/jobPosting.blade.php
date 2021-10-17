@@ -1,64 +1,18 @@
-<?php 
-// Login Validation
-$loggedIn = session('loggedIn');
-if($loggedIn != 1) {
-	Redirect::to('home')->send();
-}
-?>
 @extends('layouts.appmaster')
-@section('title', 'Job Postings')
+@section('title', 'Job Posting Page')
 @section('content')
 
-<table class="table table-dark table-striped">
-	<tr>
-		<th>Job ID</th>
-		<th>Company</th>
-		<th>Job Title</th>
-		<th>Job Type</th>
-		<th>Job Description</th>
-		<th>Job Status</th>
-		<th>Closing Date</th>
-	</tr>
-
-<?php
-use App\Services\Data\SecurityDAO;
-
-    $DAO = new SecurityDAO();
-    
-    //Create new Connection
-    $conn = $DAO->getConnection();
-    
-    $sql = "SELECT * FROM `job_posting`;"; // Select all job postins
-    $result = $conn->query($sql);
-    
-    while ($data = mysqli_fetch_array($result))
-    {
-    ?>  
-    <tr>
-    	<td> <?php echo $data['Job_ID']; ?></td> 
-    	<td> <?php echo $data['Company']; ?></td> 
-    	<td> <?php echo $data['Job_Title']; ?></td> 
-    	<td> <?php echo $data['Job_Type']; ?></td> 
-    	<td> <?php echo $data['Job_Description']; ?></td> 
-    	<td> <?php echo $data['Job_status']; ?></td> 
-    	<td> <?php echo $data['Closing_Date']; ?></td> 
-    </tr>
-<?php
-    }
+	<br>
+	<form action='selectJob' method='POST'>
+		<label  style="color:white" for='job'><b>Enter an ID of the job for more details:</b></label>
+		<input id='job' name='job'>@csrf
+		<button type='submit' class='btn btn-primary'>Select Job</button>
+	</form>
+<?php // CST-256 page by team.
+	use App\Http\Controllers\JobPostingController;
+	$controller = new JobPostingController();
+	$controller->jobPostingsAll();
 ?>
-</table>
-  <?php mysqli_close($conn); // Close connection ?>
-
-@endsection  
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+@endsection

@@ -9,7 +9,7 @@ if($loggedIn != 1) {
 @section('content')
 
                 <p> You are not a member of any Affinity Groups. 
-                	<br>Select an Infinity Group to Join.
+                	<br>Select an Affinity Group to Join.
                 </p>
                 <br><br>
                 <form  action = 'addGroup' method = 'POST'>
