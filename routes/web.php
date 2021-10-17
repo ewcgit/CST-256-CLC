@@ -79,6 +79,10 @@ Route::get('/posting', function () { // Job Posting Controller
 	return view('jobPosting'); // Staff only.
 });
 
+Route::get('/newjoblisting', function () { // Job Posting Controller
+	return view('newJobListing'); // Staff only.
+});
+
 Route::get('/affinity', 'ProfileController@affinityMemberDisplay');//Affility Member Display
 
 // POST Routes
@@ -105,4 +109,14 @@ Route::post('/dologin', 'LoginController@index'); // Login handler.
 
 Route::post('/register', 'RegisterController@index'); // Registration handler.
 
-Route::post('/selectJob', 'JobPostingController@jobPostingsByID'); // Single job description
+Route::post('/editJob', 'JobPostingController@editJob'); // Admin Edit Job Posting
+
+Route::post('/deleteJob', 'JobPostingController@deleteJob'); // Admin Edit Job Posting
+
+Route::post('/updateJob', 'JobPostingController@updateJob'); // Admin Update Job Posting
+
+Route::post('/createJob', 'JobPostingController@createJob'); // Admin Update Job Posting
+
+
+
+

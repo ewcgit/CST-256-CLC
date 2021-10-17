@@ -37,12 +37,11 @@
         // Checking if a user is an admin
         $role = session('role');
         if($role == "admin") {
-        	echo '<li class="nav-item">
-          	<form action="adminpanel" method="get">
-        	@csrf
-    		<button name="adminPanel" type="submit" class="btn btn-dark">Admin Panel</button>
+        	echo "<li class='nav-item'>
+          	<form action='adminpanel' method='get'>
+    		<button name='adminPanel' type='submit' class='btn btn-dark'>Admin Panel</button>
 			</form>
-        	</li>';
+        	</li>";
         }
         ?>
       </ul>

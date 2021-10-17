@@ -8,7 +8,7 @@
 @section('title', 'Job Selected')
 @section('content')
 
-    		<h1 style="color:white"><?php echo $Company?></h1>
+    	<h1 style="color:white"><?php echo $Company?></h1>
     	
     	<table class='table table-dark table-striped' border='1'>
         	<tr><th>JOB ID</th></tr>

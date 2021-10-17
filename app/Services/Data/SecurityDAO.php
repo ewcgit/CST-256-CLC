@@ -84,4 +84,11 @@ class SecurityDAO {
 		return $conn;
 	}
 	
+	public function getAllJobs() {
+		$conn = $this->getConnection();
+		$query = "SELECT * FROM job_posting ORDER BY Job_ID DESC";
+		$query_run = mysqli_query($conn, $query);
+		return $query_run;
+	}
+	
 }

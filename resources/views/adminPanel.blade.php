@@ -38,13 +38,16 @@ use App\Http\Controllers\AdminController;
 <br>
 	<form action='editJob' method='POST'>
 		<label for='jobID'>Enter an ID to Edit:</label>
-		<input id='jobID' name='userID'>@csrf
+		<input id='jobID' name='jobID'>@csrf
 		<button type='submit' class='btn btn-primary'>Edit Job</button>
 	</form>
 	<form action='deleteJob' method='POST'>
 		<label for='jobID'>Enter an ID to Delete:</label>
-		<input id='jobID' name='userID'>@csrf
+		<input id='jobID' name='jobID'>@csrf
 		<button type='submit' class='btn btn-primary'>Delete Job</button>
+	</form>
+	<form action='newjoblisting' method='GET'>
+		<button type='submit' class='btn btn-primary'>Create New Job Listing</button>
 	</form>
 	<br>
 	
