@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Redirect;
 use App\Models\UserModel;
 use App\Services\Business\SecurityService;
 use App\Services\Data\SecurityDAO;
+use App\Services\Utility\MyLogger3;
 
 class LoginController extends Controller {
 	public function index(Request $request) { // Using a data request.
 		// Instantiating a new security service while setting username and password.
 		$login = new SecurityService();
 		$DAO = new SecurityDAO();
+		$logger = new MyLogger3();
 		$username = $request->input('username');
 		$password = $request->input('password');
 		
@@ -30,10 +32,13 @@ class LoginController extends Controller {
 			session(['username' => $username]);
 			session(['id' => $id]);
 			session(['role' => $role]);
+			$logger->info("Login Successful.");
+			
 			return view("landingPage"); // Redirect for successful logins.
 		}
 		
 		else {
+			$logger->info("Login Successful.");
 			return view("loginFailed"); // Redirect for failed logins.
 		}
 	}
