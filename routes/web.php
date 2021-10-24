@@ -80,7 +80,7 @@ Route::get('/newjoblisting', function () { // Job Posting Controller
 	return view('newJobListing'); // Staff only.
 });
 
-Route::get('/apis', function () {
+Route::get('/api', function () {
 	return view("apis"); // Takes the user to the API list page.
 });
 
