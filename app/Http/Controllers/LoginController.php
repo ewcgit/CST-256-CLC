@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 // Resources for the login controller's functionality.
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use PHPUnit\Framework\Exception;
 use App\Models\UserModel;
 use App\Services\Business\SecurityService;
 use App\Services\Data\SecurityDAO;
@@ -11,6 +12,7 @@ use App\Services\Utility\MyLogger3;
 
 class LoginController extends Controller {
 	public function index(Request $request) { // Using a data request.
+		try { 
 		// Instantiating a new security service while setting username and password.
 		$login = new SecurityService();
 		$DAO = new SecurityDAO();
@@ -40,6 +42,10 @@ class LoginController extends Controller {
 		else {
 			$logger->info("Login Successful.");
 			return view("loginFailed"); // Redirect for failed logins.
+		}
+		}
+		catch (Exception $e) {
+			$logger->error($e);
 		}
 	}
 }

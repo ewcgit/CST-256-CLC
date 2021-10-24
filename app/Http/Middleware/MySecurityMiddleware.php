@@ -21,7 +21,7 @@ class MySecurityMiddleware
     	
     	$logger->info("Entering My Security Middleware in handle() at path: " . $path);
     	
-    	if ($request->is('adminpanel')) {
+    	if ($request->is('adminpanel') || $request->is('editUser') || $request->is('deleteUser') || $request->is('newjoblisting')) {
     		// Checking if a user is an admin
     		$role = session('role');
     		if($role != "admin") {

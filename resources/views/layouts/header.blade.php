@@ -29,6 +29,9 @@
 			</form>  
         </li>
         <li>
+        	<a href="apis" role="button" class="btn btn-dark">APIs</a> 
+        </li>
+        <li>
         	<a href="logout" role="button" class="btn btn-dark">Logout</a> 
         </li>
         

@@ -63,9 +63,6 @@ Route::get('/editUser', function () {
 	return view("editUser"); // Returns to home page.
 });
 
-Route::get('/deleteUser', function () {
-	return view("deleteUser"); // Returns to home page.
-});
 
 Route::get('/redirect', function() {
 	return redirect('/home');
@@ -81,6 +78,10 @@ Route::get('/posting', function () { // Job Posting Controller
 
 Route::get('/newjoblisting', function () { // Job Posting Controller
 	return view('newJobListing'); // Staff only.
+});
+
+Route::get('/apis', function () {
+	return view("apis"); // Takes the user to the API list page.
 });
 
 Route::get('/affinity', 'ProfileController@affinityMemberDisplay');//Affility Member Display
@@ -116,7 +117,4 @@ Route::post('/deleteJob', 'JobPostingController@deleteJob'); // Admin Edit Job P
 Route::post('/updateJob', 'JobPostingController@updateJob'); // Admin Update Job Posting
 
 Route::post('/createJob', 'JobPostingController@createJob'); // Admin Update Job Posting
-
-
-
 
