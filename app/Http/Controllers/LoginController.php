@@ -3,11 +3,9 @@ namespace App\Http\Controllers;
 
 // Resources for the login controller's functionality.
 use Illuminate\Http\Request;
-<<<<<<< Updated upstream
 use App\Models\UserModel;
 use App\Services\Business\SecurityService;
 use App\Services\Data\SecurityDAO;
-=======
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\UserModel;
@@ -15,7 +13,6 @@ use App\Services\Business\SecurityService;
 use App\Services\Data\SecurityDAO;
 use App\Services\Utility\MyLogger3;
 use Carbon\Exceptions\Exception;
->>>>>>> Stashed changes
 
 class LoginController extends Controller {
 	
@@ -28,36 +25,42 @@ class LoginController extends Controller {
         $this->logger = $log; 
     }
     public function index(Request $request) { // Using a data request.
-		// Instantiating a new security service while setting username and password.
-		$login = new SecurityService();
-		$DAO = new SecurityDAO();
-		$username = $request->input('username');
-		$password = $request->input('password');
-		
-		// Binding to the userModel.
-		try
-		{
-		    $userModel = new UserModel($username, $password);
+use Illuminate\Support\Facades\Redirect;
+use PHPUnit\Framework\Exception;
+use App\Models\UserModel;
+use App\Services\Business\SecurityService;
+use App\Services\Data\SecurityDAO;
+use App\Services\Utility\MyLogger3;
 
-<<<<<<< Updated upstream
+class LoginController extends Controller {
+	public function index(Request $request) { // Using a data request.
+		try { 
 		// Validating login 1 for valid 0 for invalid
 		$validation = $login->login($userModel);
 		$id = $DAO->getID($userModel);
+		$role = $DAO->getRole($userModel);
 		if ($validation == 1) {
 			// $data = ['username' => $username];
 			echo "<h1>Login Successful!! Welcome " . $username . ".</h1><br><br>";
 			session(['loggedIn' => $validation]);
 			session(['username' => $username]);
 			session(['id' => $id]);
+			session(['role' => $role]);
+			$logger->info("Login Successful.");
+			
 			return view("landingPage"); // Redirect for successful logins.
 		}
 		
 		else {
+			$logger->info("Login Successful.");
 			return view("loginFailed"); // Redirect for failed logins.
+		}
+		}
+		catch (Exception $e) {
+			$logger->error($e);
 		}
 	}
 }
-=======
     		// Validating login 1 for valid 0 for invalid
     		$validation = $login->login($userModel);
     		if ($validation == 1) {
@@ -94,4 +97,4 @@ class LoginController extends Controller {
 }
 
 ?>
->>>>>>> Stashed changes
+

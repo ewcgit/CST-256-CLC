@@ -39,7 +39,12 @@
 </head> 
 <?php  // CST-256 page by team.
 	use App\Http\Controllers\ProfileController;
-
+	
+	$loggedIn = session('loggedIn');
+	if($loggedIn != 1) {
+		Redirect::to('home')->send();
+	}
+	
 	// Needed for page functionality.
 	$controller = new ProfileController();
 	$controller->userProfile();
@@ -91,6 +96,10 @@
 		<h2>User Profile</h2>
 		<form action="updateProfile" method="post">
 		@csrf
+			<div class="form-group">
+				<label>ID:</label>
+				<input type="text" name="id" class="form-control" value="<?php echo $id?>" readonly><br>
+				</div>
 			<div class="form-group">
 				<label>Username:</label>
 				<input type="text" name="username" class="form-control" value="<?php echo $username?>" required><br>

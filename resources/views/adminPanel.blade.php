@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -47,7 +44,6 @@ if($loggedIn != 1) {
     Redirect::to('home')->send();
 }
 ?>
->>>>>>> Stashed changes
 
 @extends('layouts.appmaster')
 @section('title', 'Admin Panel')
@@ -78,7 +74,6 @@ if($loggedIn != 1) {
 		<input id='userID' name='userID'>@csrf
 		<button type='submit' class='btn btn-primary'>Edit User</button>
 	</form>
-	<br>
 	<form action='deleteUser' method='POST'>
 		<label for='userID'>Enter an ID to Delete:</label>
 		<input id='userID' name='userID'>@csrf
@@ -91,25 +86,29 @@ use App\Http\Controllers\AdminController;
 	$controller = new AdminController();
 	$controller->adminPanel();
 ?>
-<<<<<<< Updated upstream
-=======
 
 <br>
 	<form action='editJob' method='POST'>
 		<label for='jobID'>Enter an ID to Edit:</label>
+
 		<input id='jobID' name='jobID' required>@csrf
+		<input id='jobID' name='jobID'>@csrf
+
 		<button type='submit' class='btn btn-primary'>Edit Job</button>
 	</form>
 	<form action='deleteJob' method='POST'>
 		<label for='jobID'>Enter an ID to Delete:</label>
+
 		<input id='jobID' name='jobID' required>@csrf
+
+		<input id='jobID' name='jobID'>@csrf
+
 		<button type='submit' class='btn btn-primary'>Delete Job</button>
 	</form>
 	<form action='newjoblisting' method='GET'>
 		<button type='submit' class='btn btn-primary'>Create New Job Listing</button>
 	</form>
 	<br>
->>>>>>> Stashed changes
 	
 	
 @endsection

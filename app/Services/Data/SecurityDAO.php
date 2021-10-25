@@ -3,6 +3,7 @@
 namespace App\Services\Data;
 
 use App\Models\UserModel;
+use App\Models\JobModel;
 
 class SecurityDAO {
 	public function __construct() { // A constructor.
@@ -45,9 +46,7 @@ class SecurityDAO {
 		
 		return $id;
 	}
-	
-<<<<<<< Updated upstream
-=======
+
 	public function getRole(UserModel $user) {
 		$username = $user->getUsername();
 		$password = $user->getPassword();
@@ -66,6 +65,7 @@ class SecurityDAO {
 		
 		return $role;
 	}
+
 	public function getFirstName(UserModel $user) {
 	    $username = $user->getUsername();
 	    $password = $user->getPassword();
@@ -84,10 +84,8 @@ class SecurityDAO {
 	    
 	    return $first_Name;
 	}
-	
->>>>>>> Stashed changes
 	public function getConnection() {
-		// The default MAMP settings.
+		// The default Server settings.
 		$mysql_host = "vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
 		$mysql_database = "ayugetdsmsvnoclz";
 		$mysql_user = "b3llbmr4b6zlqq6u";
@@ -103,6 +101,13 @@ class SecurityDAO {
 		}
 		
 		return $conn;
+	}
+	
+	public function getAllJobs() {
+			$conn = $this->getConnection();
+			$query = "SELECT * FROM job_posting ORDER BY Job_ID DESC";
+			$query_run = mysqli_query($conn, $query);
+			return $query_run;
 	}
 	
 }

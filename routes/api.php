@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Displaying Jobs API
+Route::get('/getjobs', 'ApiController@getJobs');
+
+// Displaying Users API
+Route::get('/getusers', 'ApiController@getUsers');
+
+// Displaying Affinity Groups API
+Route::get('/getaffinitygroups', 'ApiController@getAffinity');
+
+// Displaying Portfolios API
+Route::get('/getportfolios', 'ApiController@getPortfolios');

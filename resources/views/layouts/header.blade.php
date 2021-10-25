@@ -10,8 +10,7 @@
         <li class="nav-item">
           <form action="profile" method="post">
         	@csrf
-    			<button name="userProfile" type="submit" class="btn btn-dark">Profile</button>
-			</form>
+    			<button name="userProfile" type="submit" class="btn btn-dark">Profile</button></form>
         </li>
         <li class="nav-item">
           <form action="portfolio" method="post">
@@ -24,19 +23,35 @@
     		<button name="jobposting" type="submit" class="btn btn-dark">Job Postings</button>
 			</form>
         </li>
-        <li class="nav-item">
-          <form action="adminpanel" method="get">
+		<li class="nav-item">
+          <form action="affinity" method="get">
         	@csrf
-    		<button name="adminPanel" type="submit" class="btn btn-dark">Admin Panel</button>
-			</form>
+    		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Memberships</button>
+			</form>  
         </li>
           <form action="affinity" method="get">
         	@csrf
     		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Membeships</button>
 			</form>        
         <li>
-        	<a href="home" role="button" class="btn btn-dark">Logout</a> 
+        	<a href="api" role="button" class="btn btn-dark">APIs</a> 
         </li>
+        <li>
+        	<a href="logout" role="button" class="btn btn-dark">Logout</a> 
+        </li>
+        
+        <!-- Checking if the user is an admin before displaying the Admin Panel button -->
+        <?php 
+        // Checking if a user is an admin
+        $role = session('role');
+        if($role == "admin") {
+        	echo "<li class='nav-item'>
+          	<form action='adminpanel' method='get'>
+    		<button name='adminPanel' type='submit' class='btn btn-dark'>Admin Panel</button>
+			</form>
+        	</li>";
+        }
+        ?>
       </ul>
     </div>
   </div>

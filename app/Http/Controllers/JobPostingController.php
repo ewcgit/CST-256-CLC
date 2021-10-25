@@ -5,6 +5,7 @@ use App\Services\Data\SecurityDAO;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class JobPostingController extends Controller {
     
     public function editJob(Request $request) {

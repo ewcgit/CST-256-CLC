@@ -1,3 +1,4 @@
+
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -37,6 +38,7 @@
 	  
     </style>
 </head>  
+
 <?php  // CST-256 page by team.
 use App\Http\Controllers\JobPostingController;
 
@@ -46,17 +48,20 @@ if($loggedIn != 1) {
 	Redirect::to('home')->send();
 }
 
+
 // Checking if a user is an admin
 $role = session('role');
 if($role != "admin") {
 	Redirect::to('dashboard')->send();
 }
+
 // Needed for page functionality.
 // Creating a new job listing
 ?>
 @extends('layouts.appmaster') 
 @section('title', 'Edit Job')
 @section('content')
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -77,6 +82,8 @@ if($role != "admin") {
     </div>
   </div>
 </nav>
+
+
 	<div class="col-md-6">
 		<h2>Job Listing</h2>
 		<form action="createJob" method="post">
