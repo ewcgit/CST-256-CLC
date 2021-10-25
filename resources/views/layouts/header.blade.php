@@ -34,7 +34,7 @@
     		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Membeships</button>
 			</form>        
         <li>
-        	<a href="api" role="button" class="btn btn-dark">APIs</a> 
+        	<a href="apis" role="button" class="btn btn-dark">APIs</a> 
         </li>
         <li>
         	<a href="logout" role="button" class="btn btn-dark">Logout</a> 
