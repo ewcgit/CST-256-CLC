@@ -28,6 +28,10 @@
     		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Memberships</button>
 			</form>  
         </li>
+          <form action="affinity" method="get">
+        	@csrf
+    		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Membeships</button>
+			</form>        
         <li>
         	<a href="api" role="button" class="btn btn-dark">APIs</a> 
         </li>

@@ -1,15 +1,9 @@
-<?php 
-$loggedIn = session('loggedIn');
-if($loggedIn != 1) {
-	Redirect::to('home')->send();
-}
-?>
 @extends('layouts.appmaster')
 @section('title', 'Affinity Groups')
 @section('content')
 
                 <p> You are not a member of any Affinity Groups. 
-                	<br>Select an Affinity Group to Join.
+                	<br>Select an Infinity Group to Join.
                 </p>
                 <br><br>
                 <form  action = 'addGroup' method = 'POST'>

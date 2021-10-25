@@ -1,13 +1,6 @@
 <?php  // CST-256 page by team.
 use App\Http\Controllers\ProfileController;
 
-// Login Validation
-$loggedIn = session('loggedIn');
-if($loggedIn != 1) {
-	Redirect::to('home')->send();
-}
-
-// A stylish page for Profile information.
 ?>
 
 @extends('layouts.appmaster')
