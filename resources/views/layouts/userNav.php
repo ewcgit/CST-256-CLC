@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <html>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -10,8 +9,7 @@
         <li class="nav-item">
           <form action="profile" method="post">
         	@csrf
-    			<button name="userProfile" type="submit" class="btn btn-dark">Profile</button>
-			</form>
+    			<button name="userProfile" type="submit" class="btn btn-dark">Profile</button></form>
         </li>
         <li class="nav-item">
           <form action="portfolio" method="post">
@@ -24,26 +22,17 @@
     		<button name="jobposting" type="submit" class="btn btn-dark">Job Postings</button>
 			</form>
         </li>
-        <li class="nav-item">
-          <form action="adminpanel" method="get">
-        	@csrf
-    		<button name="adminPanel" type="submit" class="btn btn-dark">Admin Panel</button>
-			</form>
-        </li>
+		<li class="nav-item">
           <form action="affinity" method="get">
         	@csrf
-    		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Membeships</button>
-			</form>        
+    		<button name="affinityMember" type="submit" class="btn btn-dark">Affinity Memberships</button>
+			</form>  
+        </li>
         <li>
-        	<a href="home" role="button" class="btn btn-dark">Logout</a> 
+        	<a href="logout" role="button" class="btn btn-dark">Logout</a> 
         </li>
       </ul>
     </div>
   </div>
 </nav>
 </html>
-=======
-<div id="banner">
-	<h1> Cinematic Station-1 </h1>
-</div>
->>>>>>> Stashed changes

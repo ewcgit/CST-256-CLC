@@ -30,7 +30,11 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
+<<<<<<< Updated upstream
 					<value>&lt;project&gt;/.externalToolBuilders/Milestone4.launch</value>
+=======
+					<value>&lt;project&gt;/.externalToolBuilders/New.launch</value>
+>>>>>>> Stashed changes
 				</dictionary>
 			</arguments>
 		</buildCommand>

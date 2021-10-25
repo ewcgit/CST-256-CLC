@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -32,7 +29,7 @@
         }
         
         footer {
-           position:absolute;
+
            padding: 10px 10px 0px 10px;   
            bottom:0;
            width:100%;
@@ -40,17 +37,25 @@
 	  
     </style>
 </head>  
-<?php
+<?php  // CST-256 page by team.
+use App\Http\Controllers\JobPostingController;
+
 // Checking if a user is logged in
 $loggedIn = session('loggedIn');
 if($loggedIn != 1) {
-    Redirect::to('home')->send();
+	Redirect::to('home')->send();
 }
-?>
->>>>>>> Stashed changes
 
-@extends('layouts.appmaster')
-@section('title', 'Admin Panel')
+// Checking if a user is an admin
+$role = session('role');
+if($role != "admin") {
+	Redirect::to('dashboard')->send();
+}
+// Needed for page functionality.
+// Creating a new job listing
+?>
+@extends('layouts.appmaster') 
+@section('title', 'Edit Job')
 @section('content')
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -72,44 +77,37 @@ if($loggedIn != 1) {
     </div>
   </div>
 </nav>
-<br>
-	<form action='editUser' method='POST'>
-		<label for='userID'>Enter an ID to Edit:</label>
-		<input id='userID' name='userID'>@csrf
-		<button type='submit' class='btn btn-primary'>Edit User</button>
-	</form>
-	<br>
-	<form action='deleteUser' method='POST'>
-		<label for='userID'>Enter an ID to Delete:</label>
-		<input id='userID' name='userID'>@csrf
-		<button type='submit' class='btn btn-primary'>Delete User</button>
-	</form>
-	<br>
-<?php // CST-256 page by team.
-	use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AdminController;
-	$controller = new AdminController();
-	$controller->adminPanel();
-?>
-<<<<<<< Updated upstream
-=======
+	<div class="col-md-6">
+		<h2>Job Listing</h2>
+		<form action="createJob" method="post">
+		@csrf
+			<div class="form-group">
+				<label>Job Company:</label>
+				<input type="text" name="company" class="form-control" required><br>	
+			</div>
+			<div class="form-group">
+				<label>Job Title:</label>
+				<input type="text" name="jobTitle" class="form-control" required><br>	
+			</div>
+			<div class="form-group">
+				<label>Job Type:</label>
+				<input type="text" name="jobType" class="form-control" required><br>	
+			</div>
+			<div class="form-group">
+				<label>Job Description:</label><br>
+				<textarea name="jobDescription" class="text" cols="100" rows ="8" required></textarea>
+			</div>
+			<div class="form-group">
+				<label>Job Status:</label>
+				<input type="text" name="jobStatus" class="form-control" required><br>	
+			</div>
+			<div class="form-group">
+				<label>Closing Date:</label>
+				<input type="text" name="closingDate" class="form-control" required><br>	
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Create New Job Listing</button>
+		</form>
+	</div>
 
-<br>
-	<form action='editJob' method='POST'>
-		<label for='jobID'>Enter an ID to Edit:</label>
-		<input id='jobID' name='jobID' required>@csrf
-		<button type='submit' class='btn btn-primary'>Edit Job</button>
-	</form>
-	<form action='deleteJob' method='POST'>
-		<label for='jobID'>Enter an ID to Delete:</label>
-		<input id='jobID' name='jobID' required>@csrf
-		<button type='submit' class='btn btn-primary'>Delete Job</button>
-	</form>
-	<form action='newjoblisting' method='GET'>
-		<button type='submit' class='btn btn-primary'>Create New Job Listing</button>
-	</form>
-	<br>
->>>>>>> Stashed changes
-	
-	
 @endsection

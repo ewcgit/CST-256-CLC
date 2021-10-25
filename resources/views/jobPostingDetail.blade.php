@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-<?php // CST-256 page by team. 
-// A page for user logins.
-=======
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -40,24 +36,15 @@
         }
 	  
     </style>
-</head>  
+</head> 
+<?php  // CST-256 page by team.
+	use App\Http\Controllers\JobPostingController;
 
-<?php use Illuminate\Auth\Events\Login;
-use App\Http\Controllers\LoginController;
-
-// CST-256 page by team.
-// A page for user logins.
-// Login Validation
-
-
-$loggedIn = session('loggedIn');
-if($loggedIn != 1) {
-	Redirect::to('home')->send();
-}
->>>>>>> Stashed changes
+	// Needed for page functionality.
+	// A stylish page for user information.
 ?>
-@extends('layouts.appmaster')
-@section('title', 'Dashboard')
+@extends('layouts.appmaster') 
+@section('title', 'Job Selected')
 @section('content')
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -96,4 +83,20 @@ if($loggedIn != 1) {
   </div>
 </nav>
 
-@stop
+    	<h1 style="color:white"><?php echo $Company?></h1>
+    	
+    	<table class='table table-dark table-striped' border='1'>
+        	<tr><th>JOB ID</th></tr>
+        	<tr><td><?php echo $Job_ID?></td></tr>
+        	<tr><th> Job Title</th></tr>
+        	<tr><td><?php echo $Job_Title?></td></tr>
+        	<tr><th>Job Type</th></tr>
+        	<tr><td><?php echo $Job_Type?></td></tr>
+        	<tr><th>Job Description</th></tr>
+        	<tr><td><?php echo $Job_Description?></td></tr>
+        	<tr><th>Job Status</th></tr>
+        	<tr><td><?php echo $Job_status?></td></tr>
+        	<tr><th>Closing Date</th></tr>
+        	<tr><td><?php echo strtotime($Closing_Date)?></td></tr>
+        </table>
+@endsection

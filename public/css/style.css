@@ -1,49 +1,7 @@
-.body{
-  margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
+body {
+  background: #D7AF70;
   background-color: #D7AF70;
 }
-
-.login-box{
-	max-width: 700px;
-	float: none;
-	margin: 150px auto;
-}
-
-.login-left{
-	background: rgba(210, 210, 210, 0.5);
-	padding: 30px;
-}
-
-.login-right{
-	background: #fff;
-	padding: 30px;
-}
-
-.form-control{
-	background-color: transparent !important;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #433;
-}
-
-.topnav a {
-  float: left;
-  color: #04AA6D;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #35a0c2;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #433;
-  color: white;
+#banner{
+	color:white;
 }
